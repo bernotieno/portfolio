@@ -1,6 +1,8 @@
 import express from 'express';
 import path from 'path';
+import morgan from 'morgan';
 import { fileURLToPath } from 'url';
+import { inject } from "@vercel/analytics";
 import { initializeEnv } from './config/env.js';
 import { notFoundHandler, errorHandler } from './middleware/errorHandlers.js';
 import healthRouter from './routes/route.js';
@@ -15,6 +17,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Middleware setup
+app.use(morgan('combined'));
+app.use(helmetConfig);
+app.use(rateLimiter);
+app.use(corsMiddleware);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public'), {
@@ -22,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public'), {
 }));
 
 // Routes
-app.use('/routes/route', healthRouter);
+app.use('/routes/health', healthRouter);
 app.use('/', pagesRouter);
 
 // Error handling
