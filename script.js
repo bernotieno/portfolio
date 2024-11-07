@@ -97,35 +97,3 @@ pages.forEach((_, index) => {
         }, 500)
     }, (index +1) * 200 + 2100)
 })
-
-
-// Import the EmailJS library
-import emailjs from 'emailjs-com';
-
-// Get the form element
-const form = document.querySelector('.contact-box form');
-
-// Add an event listener to the form's submit event
-form.addEventListener('submit', function(e) {
-  e.preventDefault(); // Prevent the default form submission
-
-  // Get the form field values
-  const name = form.querySelector('input[type="text"]').value;
-  const email = form.querySelector('input[type="email"]').value;
-  const message = form.querySelector('textarea').value;
-
-  // Configure the EmailJS service
-  const serviceID = 'service_85sqdlp';
-  const templateID = 'template_6z283s7';
-  const userID = 'z6ltx6l1K7FLzkr2a';
-
-  // Use EmailJS to send the email
-  emailjs.sendForm(serviceID, templateID, form, userID)
-    .then(function() {
-      console.log('Email sent successfully!');
-      // You can add additional logic here, such as clearing the form fields or displaying a success message
-    }, function(error) {
-      console.log('Email send failed:', error);
-      // Handle the error case, such as displaying an error message
-    });
-});
