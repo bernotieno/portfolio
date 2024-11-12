@@ -424,6 +424,13 @@ a:active {
     }
 }  
 
+.logo-size {
+    width: 100px;   /* Adjust width for logo size */
+    height: auto;   /* Maintain aspect ratio */
+    max-height: 100px;  /* Cap height to ensure small size */
+    object-fit: contain;  /* Keep the full image visible */
+  }
+
 /*====================================================
                       SKILLS
 ======================================================*/
