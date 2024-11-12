@@ -19,6 +19,8 @@
     <link href="css/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -279,19 +281,24 @@
                 <div class="heading-border-light"></div>
                 <p>Feel free to reach out to me if you have any questions or need assistance. I'm happy to help and look forward to hearing from you!</p>
               </div>   
-              <div class="row con-form">
+              <form class="row con-form" id="contact-form">
                 <div class="col-md-12">
-                  <input type="text" name="full-name" placeholder="Full Name" class="form-control">
+                    <input type="text" name="full-name" id="full-name" placeholder="Full Name" class="form-control" required>
                 </div>
                 <div class="col-md-12">
-                  <input type="text" name="email" placeholder="Email Address" class="form-control">
+                    <input type="email" name="email" id="email" placeholder="Email Address" class="form-control" required>
                 </div>
                 <div class="col-md-12">
-                  <input type="text" name="subject" placeholder="Subject" class="form-control">
+                    <input type="text" name=" " id="subject" placeholder="Subject" class="form-control" required>
                 </div>
-                <div class="col-md-12"><textarea name="" id=""></textarea></div>
-                <div class="col-md-12 sub-but"><button class="btn btn-general btn-white" role="button">Send</button></div>
-              </div>
+                <div class="col-md-12">
+                    <textarea name="message" id="message" placeholder="Your message" class="form-control" required></textarea>
+                </div>
+                <div class="col-md-12 sub-but">
+                    <button type="submit" class="btn btn-general btn-white" role="button">Send</button>
+                </div>
+            </form>
+            
             </div>
             <div class="col-md-4 col-sm-12 mt-5"> 
               <div class="contact-cont2"> 
