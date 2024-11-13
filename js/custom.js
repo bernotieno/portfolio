@@ -26,13 +26,14 @@
   });
 
 })(jQuery); // End of use strict
+
 // Ensure the script runs after the DOM is loaded
 document.addEventListener("DOMContentLoaded", function() {
   // Initialize EmailJS with your User ID
   emailjs.init('z6ltx6l1K7FLzkr2a');  // Replace with your actual User ID
   
   const form = document.getElementById('contact-form');
-  console.log(form);  // Ensure the form is selected correctly
+  const successMessage = document.getElementById('success-message');
 
   form.addEventListener('submit', function(event) {
       event.preventDefault();  // Prevent default form submission
@@ -41,6 +42,12 @@ document.addEventListener("DOMContentLoaded", function() {
       emailjs.sendForm('service_sop3bqd', 'template_jmehbga', form)
           .then(function(response) {
               console.log('Message sent successfully!', response);
+              successMessage.style.display = 'block';  // Show success message
+
+              // Hide the message after 5 seconds
+              setTimeout(function() {
+                  successMessage.style.display = 'none';
+              }, 5000);
           }, function(error) {
               console.error('Error sending message:', error);
           });
