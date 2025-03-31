@@ -213,6 +213,7 @@ a:active {
                       ABOUT
 ====================================================*/
   #about {
+      position: relative;
       padding-bottom: 20vh;
       background-image: url(../img/profile-banner.jpg); 
       background-size: cover;
@@ -230,6 +231,7 @@ a:active {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
+    pointer-events: none;
   }
 
   #about * {
